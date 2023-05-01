@@ -21,16 +21,19 @@ def get_labels():
         print(label)
     return labels
 
-
 def game_loop(sc, clock):
     running = True
     input_boxes = param_window.create_input_boxes()
-    x, y = raft.start_x, raft.start_y
+    x, y = river.river_corner_x + constant_params["river width"]/2, HEIGHT/2
+    # x, y = raft.start_x, raft.start_y
     labels = get_labels()
+    angle = 0
     while running:
         sc.fill(Colors.WHITE)
         river.draw_river(sc)
-        x, y = raft.draw_raft(sc, x, y)
+
+        x, y, angle = raft.draw_raft(sc, x, y, angle)
+        # angle += 2
         param_window.draw_param_window(sc)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:

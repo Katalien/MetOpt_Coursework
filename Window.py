@@ -85,7 +85,7 @@ class InputBox:
                         self.text = self.text[:-1]
                 else:
                     new_txt = event.unicode
-                    if len(self.text) < 17:
+                    if len(self.text) < 18:
                         self.text += new_txt
                 # Re-render the text.
 
